@@ -13,12 +13,12 @@ namespace Market.Services
 {
     public class SaleOrderService
     {
-        public ISaleOrderRepository ISaleOrderRepository { get; set; }
+        public ISaleOrderRepository SaleOrderRepository { get; set; }
         public IItemRepository IitemRepository { get; set; }
         public IRackRepository IRackRepository { get; set; }
         public void CreateAndUpdatePurchaseOrder(SaleOrderContract saleOrderContract)
         {
-            var saleOrder = ISaleOrderRepository.Get(saleOrderContract.Id);
+            var saleOrder = SaleOrderRepository.Get(saleOrderContract.Id);
             if (saleOrder != null)
             {
                // Update Order
@@ -63,7 +63,7 @@ namespace Market.Services
                     }
                 }
 
-                ISaleOrderRepository.Update(saleOrder);
+                SaleOrderRepository.Update(saleOrder);
             }
             else
             {
@@ -89,7 +89,7 @@ namespace Market.Services
                     saleOrder.SaleOrderItems.Add(InDatabaseOrderItem);
                 }
 
-                ISaleOrderRepository.Insert(saleOrder);
+                SaleOrderRepository.Insert(saleOrder);
             }
         }
     }

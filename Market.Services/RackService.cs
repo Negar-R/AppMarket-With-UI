@@ -23,7 +23,7 @@ namespace Market.Services
                 rack.Name = rackContract.Name;
                 rack.Limit = rackContract.Limit;
                 rack.Location = rackContract.Location;
-
+                // un list az khode rack ke darim piade sazi nashode!!
                 IRackRepository.Update(rack);
             }
             else
