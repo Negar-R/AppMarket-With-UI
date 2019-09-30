@@ -22,14 +22,13 @@ namespace Market.Services
             var purchaseOrder = IPurchaseOrderRepository.Get(purchaseOrderContract.Id);
             if (purchaseOrder != null)
             {
-                //purchaseOrder.Code = purchaseOrderContract.Code;
-                //purchaseOrder.CreationDate = purchaseOrderContract.CreationDate;
+                // Update Order
                 purchaseOrder.Title = purchaseOrderContract.Title;
 
                 for (int i = 0 ; i < purchaseOrderContract.PurchaseOrderItemContracts.Count ; i++)
                 {
                     var temp = purchaseOrderContract.PurchaseOrderItemContracts[i];
-                    if (purchaseOrderContract.PurchaseOrderItemContracts.Any(x => x.Id == temp.Id))
+                    if (purchaseOrder.PurchaseOrderItems.Any(x => x.Id == temp.Id))
                     {
                         //Update OrderItem
                         var InDatabaseOrderItem = purchaseOrder.PurchaseOrderItems.FirstOrDefault(x => x.Id == temp.Id);
@@ -39,6 +38,7 @@ namespace Market.Services
                         InDatabaseOrderItem.TotalPrice = temp.TotalPrice;
                         InDatabaseOrderItem.Item = IitemRepository.Get(temp.ItemId);
                         InDatabaseOrderItem.Rack = IRackRepository.Get(temp.RackId);
+
                     }
                     else
                     {
@@ -57,10 +57,15 @@ namespace Market.Services
                     }
                 }
 
-                for (int i = 0; i < purchaseOrder.PurchaseOrderItems.Count; i++)
+                for (int i = 0; i < purchaseOrder.PurchaseOrderItems.Count; i++) //db
                 {
                     var temp = purchaseOrder.PurchaseOrderItems[i];
-                    DeleteIndexBinder();
+                    //Delete extra orderItems in order(DB)
+                    if (!purchaseOrderContract.PurchaseOrderItemContracts.Any(x => x.Id == temp.Id));
+                    {
+                        //if (purchaseOrderContract.PurchaseOrderItemContracts.Exists(d => d.Id != temp.Id))
+                        purchaseOrder.PurchaseOrderItems.Remove(temp);
+                    }
 
                 }
 
@@ -68,10 +73,27 @@ namespace Market.Services
             }
             else
             {
+                // Create Order
                 purchaseOrder = new PurchaseOrder();
                 purchaseOrder.Code = purchaseOrderContract.Code;
                 purchaseOrder.CreationDate = purchaseOrderContract.CreationDate;
                 purchaseOrder.Title = purchaseOrderContract.Title;
+
+                for (int i = 0; i < purchaseOrderContract.PurchaseOrderItemContracts.Count; i++)
+                {
+                    var temp = purchaseOrderContract.PurchaseOrderItemContracts[i];
+
+                    var InDatabaseOrderItem = new PurchaseOrderItem();
+
+                    InDatabaseOrderItem.NetPrice = temp.NetPrice;
+                    InDatabaseOrderItem.Quantity = temp.Quantity;
+                    InDatabaseOrderItem.UnitPrice = temp.UnitPrice;
+                    InDatabaseOrderItem.TotalPrice = temp.TotalPrice;
+                    InDatabaseOrderItem.Item = IitemRepository.Get(temp.ItemId);
+                    InDatabaseOrderItem.Rack = IRackRepository.Get(temp.RackId);
+
+                    purchaseOrder.PurchaseOrderItems.Add(InDatabaseOrderItem);
+                }
 
                 IPurchaseOrderRepository.Insert(purchaseOrder);
             }

@@ -21,7 +21,7 @@ namespace Market.Services
             if (rackitemLevelContract != null)
             {
                 //save
-                rackitemLevelContract.Item = IitemRepository.Get(rackItemLevelContract.ItemId);//!
+                rackitemLevelContract.Item = IitemRepository.Get(rackItemLevelContract.ItemId);
                 rackitemLevelContract.Rack = IRackRepository.Get(rackItemLevelContract.RackId);
                 rackitemLevelContract.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
                 rackitemLevelContract.InQuantity = rackItemLevelContract.InQuantity;
@@ -33,6 +33,7 @@ namespace Market.Services
             {
                 //creat
                 rackitemLevelContract = new RackItemLevel();
+
                 rackitemLevelContract.Item = IitemRepository.Get(rackItemLevelContract.ItemId);
                 rackitemLevelContract.Rack = IRackRepository.Get(rackItemLevelContract.RackId);
                 rackitemLevelContract.CurrentQuantity = rackItemLevelContract.CurrentQuantity;

@@ -31,6 +31,7 @@ namespace Market.Services
             {
                 //Insert OR Create
                 item = new Item();
+
                 item.Code = itemContract.Code;
                 item.Name = itemContract.Name;
                 item.Unit = itemContract.Unit;

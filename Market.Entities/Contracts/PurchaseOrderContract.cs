@@ -10,11 +10,11 @@ namespace Market.Entities.Contracts
     public class PurchaseOrderContract : OrderContract
     {
         // List PurchaseOrderItem
-        public List<PurchaseOrderItemContract> PurchaseOrderItemContracts { get; set; }
-
         public PurchaseOrderContract()
         {
             PurchaseOrderItemContracts = new List<PurchaseOrderItemContract>();
         }
+        public List<PurchaseOrderItemContract> PurchaseOrderItemContracts { get; set; }
+
     }
 }

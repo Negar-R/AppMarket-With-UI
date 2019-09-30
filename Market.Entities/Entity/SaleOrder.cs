@@ -13,6 +13,6 @@ namespace Market.Entities.Entity
             SaleOrderItems = new List<SaleOrderItem>();
         }
 
-        public virtual ICollection<SaleOrderItem> SaleOrderItems { get; set; }
+        public virtual List<SaleOrderItem> SaleOrderItems { get; set; }
     }
 }

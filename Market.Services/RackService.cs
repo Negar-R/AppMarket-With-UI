@@ -16,7 +16,7 @@ namespace Market.Services
         public void CreateAndUpdateRackItemLevel(RackContract rackContract)
         {
             var rack = IRackRepository.Get(rackContract.Id);
-            if (rack.Id != null)
+            if (rack != null)
             {
                 rack.Racks = rackContract.Racks;
                 rack.Code = rackContract.Code;
