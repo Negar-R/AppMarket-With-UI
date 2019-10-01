@@ -59,6 +59,10 @@
     <Compile Include="RackItemLevelMap.cs" />
     <Compile Include="RackMap.cs" />
     <Compile Include="Repositories\ItemRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderRepository.cs" />
+    <Compile Include="Repositories\RackItemLevelRepository.cs" />
+    <Compile Include="Repositories\RackRepository.cs" />
+    <Compile Include="Repositories\SaleOrderRepository.cs" />
     <Compile Include="SaleOrderItemMap.cs" />
     <Compile Include="SaleOrderMap.cs" />
     <Compile Include="StoreConfiguration.cs" />
