@@ -10,11 +10,11 @@ namespace Market.Entities.Contracts
     public class RackContract
     {
         public Guid Id { get; set; }
+        public Guid RackId { get; set; }
         public string Name { get; set; }
         public int Code { get; set; }
         public int Limit { get; set; }
         public string Location { get; set; }
-        // List Rack
-        public List<Rack> RackContracts { get; set; }
+       // public List<Rack> RackContracts { get; set; }
     }
 }

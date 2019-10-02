@@ -17,30 +17,30 @@ namespace Market.Services
 
         public void CreateAndUpdateRackItemLevel(RackItemLevelContract rackItemLevelContract)
         {
-            var rackitemLevelContract = IRackItemLevelRepository.Get(rackItemLevelContract.Id);
-            if (rackitemLevelContract != null)
+            var rackitemLevel = IRackItemLevelRepository.Get(rackItemLevelContract.Id);
+            if (rackitemLevel != null)
             {
                 //save
-                rackitemLevelContract.Item = IitemRepository.Get(rackItemLevelContract.ItemId);
-                rackitemLevelContract.Rack = IRackRepository.Get(rackItemLevelContract.RackId);
-                rackitemLevelContract.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
-                rackitemLevelContract.InQuantity = rackItemLevelContract.InQuantity;
-                rackitemLevelContract.OutQuantity = rackItemLevelContract.OutQuantity;
+                rackitemLevel.Item = IitemRepository.Get(rackItemLevelContract.ItemId);
+                rackitemLevel.Rack = IRackRepository.Get(rackItemLevelContract.RackId);
+                rackitemLevel.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
+                rackitemLevel.InQuantity = rackItemLevelContract.InQuantity;
+                rackitemLevel.OutQuantity = rackItemLevelContract.OutQuantity;
 
-                IRackItemLevelRepository.Update(rackitemLevelContract);
+                IRackItemLevelRepository.Update(rackitemLevel);
             }
             else
             {
                 //creat
-                rackitemLevelContract = new RackItemLevel();
+                rackitemLevel = new RackItemLevel();
 
-                rackitemLevelContract.Item = IitemRepository.Get(rackItemLevelContract.ItemId);
-                rackitemLevelContract.Rack = IRackRepository.Get(rackItemLevelContract.RackId);
-                rackitemLevelContract.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
-                rackitemLevelContract.InQuantity = rackItemLevelContract.InQuantity;
-                rackitemLevelContract.OutQuantity = rackItemLevelContract.OutQuantity;
+                rackitemLevel.Item = IitemRepository.Get(rackItemLevelContract.ItemId);
+                rackitemLevel.Rack = IRackRepository.Get(rackItemLevelContract.RackId);
+                rackitemLevel.CurrentQuantity = rackItemLevelContract.CurrentQuantity;
+                rackitemLevel.InQuantity = rackItemLevelContract.InQuantity;
+                rackitemLevel.OutQuantity = rackItemLevelContract.OutQuantity;
 
-                IRackItemLevelRepository.Insert(rackitemLevelContract);
+                IRackItemLevelRepository.Insert(rackitemLevel);
             }
         }
     }
