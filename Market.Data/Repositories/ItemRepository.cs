@@ -15,13 +15,6 @@ namespace Market.Data.Repositories
 
         public List<Item> GetAll()
         {
-            //ino poresh kon bedo ebdo
-            //bedo bebinam che mikoni
-            //var d = session.CreateSQLQuery("select * from dbo.item").List();
-            //return (List<Item>) d;
-            //return session.Load(Item);
-            //felan azin estefad kon ok?OK alan bara Rack ina ham benevisam? pa na pa man biam benvisam ya mikhay gorbe siahe biad :)))
-            // Khodam minevisam :))
           return  session.QueryOver<Item>().List<Item>().ToList();
         }
 

@@ -15,6 +15,5 @@ namespace Market.Entities.Contracts
         public int Code { get; set; }
         public int Limit { get; set; }
         public string Location { get; set; }
-       // public List<Rack> RackContracts { get; set; }
     }
 }
