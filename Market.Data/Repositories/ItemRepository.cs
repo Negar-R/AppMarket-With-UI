@@ -9,7 +9,7 @@ using NHibernate;
 
 namespace Market.Data.Repositories
 {
-    public class ItemRepository : IItemRepository
+    public class ItemRepository :RepositoryBase, IItemRepository
     {
         private ISession session;
 
