@@ -70,6 +70,10 @@
       <Project>{6afa436b-1f6a-4def-958c-2887eb422e1c}</Project>
       <Name>Market.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Market.DependencyInjection\Market.DependencyInjection.csproj">
+      <Project>{d23cbdfc-c725-4cd1-bfd8-ee34b46d8c43}</Project>
+      <Name>Market.DependencyInjection</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Market.Entities\Market.Entities.csproj">
       <Project>{7adefc48-0e8f-4b2d-9cec-0ef9aa728fab}</Project>
       <Name>Market.Entities</Name>

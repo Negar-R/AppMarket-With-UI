@@ -50,6 +50,7 @@
     <Compile Include="Contracts\SaleOrderItemContract.cs" />
     <Compile Include="Entity\BaseEntity.cs" />
     <Compile Include="Entity\Item.cs" />
+    <Compile Include="Interfaces\RepositoryBase.cs" />
     <Compile Include="Interfaces\IItemRepository.cs" />
     <Compile Include="Interfaces\IPurchaseOrderRepository.cs" />
     <Compile Include="Interfaces\IRackItemLevelRepository.cs" />
